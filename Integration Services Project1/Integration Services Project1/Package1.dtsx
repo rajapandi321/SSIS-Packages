@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/7/2023 8:52:21 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="INBOOK_X1_SLIM"
+  DTS:CreatorName="INBOOK_X1_SLIM\activ"
+  DTS:DTSID="{D3047C91-BF0B-4C97-8C15-18EF052D845B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5314.0"
+  DTS:LocaleID="16393"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionGUID="{9B8C58EA-53F7-4316-BF40-66B6882C0628}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables />
+</DTS:Executable>

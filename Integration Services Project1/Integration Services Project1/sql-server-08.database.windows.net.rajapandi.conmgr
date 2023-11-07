@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="sql-server-08.database.windows.net.rajapandi"
+  DTS:DTSID="{FDC29322-C53E-4FC6-BB4F-48EABA52529B}"
+  DTS:CreationName="SMOServer">
+  <DTS:ObjectData>
+    <SMOServerConnectionManager
+      ConnectionString="SqlServerName=sql-server-08.database.windows.net;UseWindowsAuthentication=False;UserName=rajapandi;"
+      ConnectByProxy="False">
+      <PassWord
+        Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAbp00ScY920CxM5k7IeYy5wAAAAACAAAAAAAQZgAAAAEAACAAAAByWYIaHikg8XJnXV0p8fk5G+3cTepqXipSMZeQ84p71AAAAAAOgAAAAAIAACAAAABJtqdbpP01uQg2PcIFHxrFJRQtm1sI+vUsUrj8yYAzf2AAAAAsm2Z0/swNw6vYQgv24iRcrjx9PTQdrM4nWwtMrqhPaWdItkvEXgee4C+mj7c63NY+rgJ1oHdNwzbc24YkaFBBIaSq/FpA8sku8OoOVP0kHE7AR4So44EWD7wikEZB/YZAAAAA/LTwoRPNLT5ME16SGcEMh/IQMC2P9USBNODt+O3iZocBrIVilfPZryUSIC27xMA1lIveqJmCyEn1yk/62gfJ5g==</PassWord>
+    </SMOServerConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

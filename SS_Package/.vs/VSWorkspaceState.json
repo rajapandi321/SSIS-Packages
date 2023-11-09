@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\bin",
+    "\\bin\\Development",
+    "\\obj\\Development"
   ],
-  "SelectedNode": "\\Package.dtsx",
-  "PreviewInSolutionExplorer": false
+  "SelectedNode": "\\bin",
+  "PreviewInSolutionExplorer": true
 }

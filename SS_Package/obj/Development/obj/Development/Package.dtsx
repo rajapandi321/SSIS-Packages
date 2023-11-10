@@ -11,8 +11,8 @@
   DTS:LocaleID="16393"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="23"
-  DTS:VersionGUID="{0D2442EB-D4BC-4F2E-AE02-FD8AE0130B25}">
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{B07323F6-F60A-4CC9-AE62-52CE8E6C1669}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiuiKHqdb1kiaYDNGEozAjwAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADAu2Dk6H4vuTSkI4rLsUStAAAAAASAAACgAAAAEAAAADos/wRiMGgKpREdGu1aMygYAAAAWO9RLAXBQ5xjzrGMMdqI06fz8UJ2rLt/FAAAALn4EXb0piRn8AJjM0UOxIzXBT1X</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiuiKHqdb1kiaYDNGEozAjwAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADgqYMbb/kWinoX7f/o/PPvAAAAAASAAACgAAAAEAAAADPF4gPh+c7ASoNF1mXtq/IYAAAAJ0yqMU/n2loYzVEjrd5A4zPkqQA9RXKsFAAAAK7cNdnOBtsIZsxVpbtC4fa5LH6+</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -2245,7 +2245,7 @@ where [refTable].[SUBDIVISION] = ? and [refTable].[YEAR] = ? and [refTable].[JAN
         <SQLTask:SqlTaskData
           SQLTask:Connection="{E8189FA9-EF5B-48BD-BE40-B2C4F25FCDF0}"
           SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="delete from Flood where [Floods] = 'YES'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="delete from Flood where [Floods] = 'NO'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -2342,6 +2342,10 @@ where [refTable].[SUBDIVISION] = ? and [refTable].[YEAR] = ? and [refTable].[JAN
           Size="168,42.6666666666667"
           Id="Package\Execute SQL Task"
           TopLeft="156.874992987141,86.1578940982799" />
+        <NodeLayout
+          Size="177.333333333334,42.6666666666667"
+          Id="Package\Execute SQL Task 1"
+          TopLeft="556.249975133688,171.052629700823" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="324.874992987141,108.885964104687">
@@ -2392,10 +2396,6 @@ where [refTable].[SUBDIVISION] = ? and [refTable].[YEAR] = ? and [refTable].[JAN
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="177.333333333334,42.6666666666667"
-          Id="Package\Execute SQL Task 1"
-          TopLeft="556.249975133688,171.052629700823" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
           TopLeft="450.791653786476,173.192980803391">
@@ -2433,11 +2433,23 @@ where [refTable].[SUBDIVISION] = ? and [refTable].[YEAR] = ? and [refTable].[JAN
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="153.333333333334,42.6666666666667"
+          Id="Package.EventHandlers[OnError]\Send Mail Task"
+          TopLeft="336.999989956618,121.999996364117" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
   <TaskHost
     design-time-name="Package\Data Flow Task">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="174.666666666667,42.6666666666667"
           Id="Package\Data Flow Task\OLE DB Destination"
@@ -2477,9 +2489,7 @@ where [refTable].[SUBDIVISION] = ? and [refTable].[YEAR] = ? and [refTable].[JAN
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -2666,17 +2676,5 @@ where [refTable].[SUBDIVISION] = ? and [refTable].[YEAR] = ? and [refTable].[JAN
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <DtsEventHandler
-    design-time-name="Package.EventHandlers[OnError]">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
-        <NodeLayout
-          Size="153.333333333334,42.6666666666667"
-          Id="Package.EventHandlers[OnError]\Send Mail Task"
-          TopLeft="336.999989956618,121.999996364117" />
-      </GraphLayout>
-    </LayoutInfo>
-  </DtsEventHandler>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

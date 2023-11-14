@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34221.43
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Health_Proj", "Health_Proj\Health_Proj.rptproj", "{009A2B00-47CF-44F7-8074-4DD853A6715B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{009A2B00-47CF-44F7-8074-4DD853A6715B}.Debug|Default.ActiveCfg = Debug
+		{009A2B00-47CF-44F7-8074-4DD853A6715B}.Debug|Default.Build.0 = Debug
+		{009A2B00-47CF-44F7-8074-4DD853A6715B}.Debug|Default.Deploy.0 = Debug
+		{009A2B00-47CF-44F7-8074-4DD853A6715B}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{009A2B00-47CF-44F7-8074-4DD853A6715B}.DebugLocal|Default.Build.0 = DebugLocal
+		{009A2B00-47CF-44F7-8074-4DD853A6715B}.Release|Default.ActiveCfg = Release
+		{009A2B00-47CF-44F7-8074-4DD853A6715B}.Release|Default.Build.0 = Release
+		{009A2B00-47CF-44F7-8074-4DD853A6715B}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6065108A-A3D3-47B1-AE39-4C188F21FDEE}
+	EndGlobalSection
+EndGlobal

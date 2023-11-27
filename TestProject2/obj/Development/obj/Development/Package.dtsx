@@ -11,8 +11,8 @@
   DTS:LocaleID="16393"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="13"
-  DTS:VersionGUID="{249E6182-8866-4005-992B-FB1627D40249}">
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{6846633F-EE8C-46D2-BE12-7A96748A65FA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiuiKHqdb1kiaYDNGEozAjwAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABHBvsigxAwEPARnudwvdWeAAAAAASAAACgAAAAEAAAAImCJPwuF8CKRSVhj9SygqYYAAAAv9yEqUIridQbheNKl0KcW5KgujgtJGkFFAAAAAbYCQ+TUUd6XwLZqB8xJ1CMXg/1</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiuiKHqdb1kiaYDNGEozAjwAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACeLl+7Rg9LIe6SCsgLbiUrAAAAAASAAACgAAAAEAAAAJTHRbFD5Gv9mqmjFm6P2S4YAAAA9k2ms/r/tLyiMQSWmu0/OaZAnMKSONh1FAAAAPUTmZpiVfDUH8prVFEDGetsrVmX</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -525,6 +525,26 @@
   </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
+      DTS:refId="Package\Execute Package Task"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{BCBDC688-44AA-4892-B7A1-F74FE99BD4BA}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute Package Task"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Package1.dtsx</PackageName>
+          <PackagePassword
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiuiKHqdb1kiaYDNGEozAjwAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAWU2qViYs2HDoyw/pv8wC/AAAAAASAAACgAAAAEAAAAAzWQzOnd23FFMmz5g6IFdoQAAAA9dZwH4cNRbBnt06f9CyBGhQAAAAJYBCXNuDfAwkzj81LqeJqSHIwKQ</PackagePassword>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Execute SQL Task"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
@@ -939,7 +959,7 @@ WHERE Num = ?"</DTS:PropertyExpression>
         <DTS:ObjectData>
           <ForEachFileEnumeratorProperties>
             <FEFEProperty
-              Folder="D:\Customer" />
+              Folder="D:\Customer\" />
             <FEFEProperty
               FileSpec="*.csv*" />
             <FEFEProperty
@@ -1474,7 +1494,57 @@ WHERE Num = ?"</DTS:PropertyExpression>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
       DTS:To="Package\Foreach Loop Container" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{DBA1F857-7870-4805-A1B8-266E2C6CAE8F}"
+      DTS:From="Package\Foreach Loop Container"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Execute Package Task" />
   </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{2DC86E38-B423-40B9-9769-5FE05ABFA5A7}"
+      DTS:EventID="112612764"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{50CD6DFF-7742-4D3D-B9B5-5DE51BD28F5C}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Execute SQL Task"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{EA06A7D4-4F1A-4692-8F53-505B1D330EA8}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"insert into Error_Logs values('"+ @[System::MachineName] +"','"+ @[System::PackageName] +"' ,'"+ @[System::SourceName]+"','"+(DT_WSTR,12) @[System::ErrorCode] +"','"+ @[System::ErrorDescription] +"',getdate())"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{970F03DC-1921-4E0A-A654-1AF827716B64}"
+              SQLTask:SqlStatementSource="insert into Error_Logs values('LAPTOP-OBS-241','Package' ,'','0','',getdate())" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -1542,10 +1612,10 @@ WHERE Num = ?"</DTS:PropertyExpression>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="271.333333333334,220.666666666667"
+          PanelSize="271.333333333334,220"
           Size="271.333333333334,263.333333333334"
           Id="Package\Foreach Loop Container"
-          TopLeft="617.708324128762,171.166663605968" />
+          TopLeft="594.270824478008,54.166665698091" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="268.249997224659,120.016665283541">
@@ -1586,26 +1656,64 @@ WHERE Num = ?"</DTS:PropertyExpression>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="182.333326205611,10.0499998798966"
+              EndConnector="158.895826554857,-106.949998027981"
               Start="0,0"
-              End="174.833326205611,10.0499998798966">
+              End="151.395826554857,-106.949998027981">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="87.1666631028055,0" />
+                    End="75.4479132774285,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="87.1666631028055,0"
-                    Point2="91.1666631028055,0"
-                    Point3="91.1666631028055,4" />
+                    Point1="75.4479132774285,0"
+                    Point2="79.4479132774285,0"
+                    Point3="79.4479132774285,-4" />
                   <mssgle:LineSegment
-                    End="91.1666631028055,6.04999987989663" />
+                    End="79.4479132774285,-102.949998027981" />
                   <mssgle:CubicBezierSegment
-                    Point1="91.1666631028055,6.04999987989663"
-                    Point2="91.1666631028055,10.0499998798966"
-                    Point3="95.1666631028055,10.0499998798966" />
+                    Point1="79.4479132774285,-102.949998027981"
+                    Point2="79.4479132774285,-106.949998027981"
+                    Point3="83.4479132774285,-106.949998027981" />
                   <mssgle:LineSegment
-                    End="174.833326205611,10.0499998798966" />
+                    End="151.395826554857,-106.949998027981" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="184,42.6666666666667"
+          Id="Package\Execute Package Task"
+          TopLeft="1004.68748502899,233.999995815754" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="865.604157811341,185.833332364758">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="139.083327217648,69.4999967843297"
+              Start="0,0"
+              End="131.583327217648,69.4999967843297">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="65.5416636088241,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="65.5416636088241,0"
+                    Point2="69.5416636088241,0"
+                    Point3="69.5416636088241,4" />
+                  <mssgle:LineSegment
+                    End="69.5416636088241,65.4999967843297" />
+                  <mssgle:CubicBezierSegment
+                    Point1="69.5416636088241,65.4999967843297"
+                    Point2="69.5416636088241,69.4999967843297"
+                    Point3="73.5416636088241,69.4999967843297" />
+                  <mssgle:LineSegment
+                    End="131.583327217648,69.4999967843297" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1727,5 +1835,17 @@ WHERE Num = ?"</DTS:PropertyExpression>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="208,68.6666666666667"
+          Id="Package.EventHandlers[OnError]\Execute SQL Task"
+          TopLeft="327,64" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

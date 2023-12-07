@@ -11,8 +11,8 @@
   DTS:LocaleID="16393"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{6846633F-EE8C-46D2-BE12-7A96748A65FA}">
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{5EA13FAA-2058-4541-9BD9-5AA5E1B7482E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -25,11 +25,11 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=49.249.56.102;User ID=sql;Initial Catalog=employeeDB;Provider=MSOLEDBSQL.1;Application Name=SSIS-Package-{970F03DC-1921-4E0A-A654-1AF827716B64}49.249.56.102.employeeDB.sql;Auto Translate=False;">
+          DTS:ConnectionString="Data Source=49.249.56.102;User ID=sql;Initial Catalog=employeeDB;Provider=MSOLEDBSQL.1;Auto Translate=False;Application Name=SSIS-Package-{970F03DC-1921-4E0A-A654-1AF827716B64}49.249.56.102.employeeDB.sql;">
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiuiKHqdb1kiaYDNGEozAjwAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADz85HrSQZsfspZkpfJywoiAAAAAASAAACgAAAAEAAAAK0+ZbFdVjwgKkDuLNBZeJ0YAAAA/SD39SFUJBCIS/iT2GVRvUB/TJVS0KtLFAAAAO8YtL/EMcLRXiB9DH+wjJzH/gfh</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiuiKHqdb1kiaYDNGEozAjwAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADO1s/sNJrKQol3T+uuXBqwAAAAAASAAACgAAAAEAAAAHVuhxr64ceIxwSGxmz3LdEYAAAAeShsyGM9z9pkSnHo94o4gjkSULkpEakCFAAAALuE1pqcJIeGktAgiRh61jbST1RK</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -540,7 +540,7 @@
           <PackageName>Package1.dtsx</PackageName>
           <PackagePassword
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiuiKHqdb1kiaYDNGEozAjwAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABJKdILf8jHCN9FODQ7hNiHAAAAAASAAACgAAAAEAAAAOf9zxBPqG8saAEVmZtOhXsQAAAA8C89i3FQor01+JRZbQEmVhQAAAAsnoiVKI/FygL+93z1DKfkTNWFyw</PackagePassword>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiuiKHqdb1kiaYDNGEozAjwAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABN9j37nDQBARIBANDUtrw9AAAAAASAAACgAAAAEAAAAAbBVVAt0FX/L66vtoJev0YQAAAADRKcLgGhmKeItrDKv3kWhxQAAAB92LvO8GLAvCoXAPCZZd1uUOPShQ</PackagePassword>
         </ExecutePackageTask>
       </DTS:ObjectData>
     </DTS:Executable>
@@ -1558,6 +1558,10 @@ WHERE Num = ?"</DTS:PropertyExpression>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="184,42.6666666666667"
+          Id="Package\Execute Package Task"
+          TopLeft="1004.68748502899,233.999995815754" />
+        <NodeLayout
           Size="164,42.6666666666667"
           Id="Package\Execute SQL Task"
           TopLeft="186.249997224659,77.3499986168742" />
@@ -1612,7 +1616,7 @@ WHERE Num = ?"</DTS:PropertyExpression>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="271.333333333334,220"
+          PanelSize="271.333333333334,220.666666666667"
           Size="271.333333333334,263.333333333334"
           Id="Package\Foreach Loop Container"
           TopLeft="594.270824478008,54.166665698091" />
@@ -1684,10 +1688,6 @@ WHERE Num = ?"</DTS:PropertyExpression>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="184,42.6666666666667"
-          Id="Package\Execute Package Task"
-          TopLeft="1004.68748502899,233.999995815754" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
           TopLeft="865.604157811341,185.833332364758">
@@ -1725,11 +1725,23 @@ WHERE Num = ?"</DTS:PropertyExpression>
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="208,68.6666666666667"
+          Id="Package.EventHandlers[OnError]\Execute SQL Task"
+          TopLeft="327,64" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
   <TaskHost
     design-time-name="Package\For Loop Container\Data Flow Task">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="150.666666666667,42.6666666666667"
           Id="Package\For Loop Container\Data Flow Task\OLE DB Source"
@@ -1769,9 +1781,7 @@ WHERE Num = ?"</DTS:PropertyExpression>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-28.2916662848244,42.1666656206052,16,16"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -1835,17 +1845,18 @@ WHERE Num = ?"</DTS:PropertyExpression>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <DtsEventHandler
-    design-time-name="Package.EventHandlers[OnError]">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
-        <NodeLayout
-          Size="208,68.6666666666667"
-          Id="Package.EventHandlers[OnError]\Execute SQL Task"
-          TopLeft="327,64" />
-      </GraphLayout>
-    </LayoutInfo>
-  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container\For Loop Container\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
